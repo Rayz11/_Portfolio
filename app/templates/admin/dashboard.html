@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard | Rayz Tech</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for(
+            'static',
+            filename='css/admin.css'
+        ) }}"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="admin-layout">
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="admin-logo">
+                RAYZ<span>TECH</span>
+            </div>
+
+
+            <nav>
+
+                <a
+                    href="{{ url_for('admin.dashboard') }}"
+                    class="active"
+                >
+                    Dashboard
+                </a>
+
+                <a href="{{ url_for('admin.projects') }}">
+                    Projects
+                </a>
+
+                <a href="{{ url_for('admin.skills') }}">
+                    Skills
+                </a>
+
+                <a href="{{ url_for('admin.services') }}">
+                    Services
+                </a>
+
+                <a href="#">
+                    Blog
+                </a>
+
+                <a href="#">
+                    Messages
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <a href="/" target="_blank">
+                    View Website
+                </a>
+
+                <a href="{{ url_for('admin.logout') }}">
+                    Logout
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN -->
+
+        <main class="admin-main">
+
+            <div class="dashboard-header">
+
+                <div>
+
+                    <p class="dashboard-label">
+                        ADMIN DASHBOARD
+                    </p>
+
+                    <h1>
+                        Welcome back, Admin.
+                    </h1>
+
+                    <p>
+                        Manage your Rayz Tech website content from here.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATISTICS -->
+
+            <div class="dashboard-stats">
+
+                <div class="dashboard-card">
+
+                    <span>
+                        PROJECTS
+                    </span>
+
+                    <strong>
+                        {{ projects_count }}
+                    </strong>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <span>
+                        SKILLS
+                    </span>
+
+                    <strong>
+                        {{ skills_count }}
+                    </strong>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <span>
+                        SERVICES
+                    </span>
+
+                    <strong>
+                        {{ services_count }}
+                    </strong>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <span>
+                        MESSAGES
+                    </span>
+
+                    <strong>
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK ACTIONS -->
+
+            <section class="quick-actions">
+
+                <h2>
+                    Quick Actions
+                </h2>
+
+                <div class="action-grid">
+
+                    <a href="{{ url_for('admin.new_project') }}" class="action-card">
+
+                        <span>+</span>
+
+                        <div>
+                            <strong>
+                                Add Project
+                            </strong>
+
+                            <small>
+                                Create a new portfolio project
+                            </small>
+                        </div>
+
+                    </a>
+
+
+                    <a href="{{ url_for('admin.new_skill') }}" class="action-card">
+
+                        <span>+</span>
+
+                        <div>
+                            <strong>
+                                Add Skill
+                            </strong>
+
+                            <small>
+                                Add a technology or skill
+                            </small>
+                        </div>
+
+                    </a>
+
+
+                    <a href="{{ url_for('admin.new_service') }}" class="action-card">
+
+                        <span>+</span>
+
+                        <div>
+                            <strong>
+                                Add Service
+                            </strong>
+
+                            <small>
+                                Add a service you offer
+                            </small>
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>

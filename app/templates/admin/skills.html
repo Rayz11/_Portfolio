@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Skills | Rayz Tech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div class="admin-logo">RAYZ<span>TECH</span></div>
+            <nav>
+                <a href="{{ url_for('admin.dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('admin.projects') }}">Projects</a>
+                <a href="{{ url_for('admin.skills') }}" class="active">Skills</a>
+                <a href="{{ url_for('admin.services') }}">Services</a>
+            </nav>
+            <div class="sidebar-bottom">
+                <a href="/" target="_blank">View Website</a>
+                <a href="{{ url_for('admin.logout') }}">Logout</a>
+            </div>
+        </aside>
+
+        <main class="admin-main">
+            <div class="page-header">
+                <div>
+                    <p class="dashboard-label">MANAGE SKILLS</p>
+                    <h1>Skills</h1>
+                    <p>Add the technologies and skills you want to showcase.</p>
+                </div>
+                <a href="{{ url_for('admin.new_skill') }}" class="admin-button small">+ Add Skill</a>
+            </div>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <div class="content-card">
+                {% if skills %}
+                    <div class="item-list">
+                        {% for skill in skills %}
+                            <div class="item-card">
+                                <div>
+                                    <h3>{{ skill.name }}</h3>
+                                    <p>{{ skill.category or 'General skill' }}</p>
+                                </div>
+                                <div class="action-links">
+                                    <a href="{{ url_for('admin.edit_skill', skill_id=skill.id) }}">Edit</a>
+                                    <form method="post" action="{{ url_for('admin.delete_skill', skill_id=skill.id) }}" onsubmit="return confirm('Delete this skill?');">
+                                        <button type="submit">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p class="empty-state">No skills yet. Add your first skill.</p>
+                {% endif %}
+            </div>
+        </main>
+    </div>
+</body>
+</html>

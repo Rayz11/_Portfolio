@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ action }} Project | Rayz Tech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div class="admin-logo">RAYZ<span>TECH</span></div>
+            <nav>
+                <a href="{{ url_for('admin.dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('admin.projects') }}" class="active">Projects</a>
+                <a href="{{ url_for('admin.skills') }}">Skills</a>
+                <a href="{{ url_for('admin.services') }}">Services</a>
+            </nav>
+            <div class="sidebar-bottom">
+                <a href="/" target="_blank">View Website</a>
+                <a href="{{ url_for('admin.logout') }}">Logout</a>
+            </div>
+        </aside>
+
+        <main class="admin-main">
+            <div class="page-header">
+                <div>
+                    <p class="dashboard-label">PROJECT FORM</p>
+                    <h1>{{ action }} Project</h1>
+                    <p>Fill in the details for the portfolio project.</p>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <form method="post" class="entity-form">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" name="title" value="{{ project.title if project else '' }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="description" rows="5" required>{{ project.description if project else '' }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <input type="text" name="category" value="{{ project.category if project else '' }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Technologies</label>
+                        <input type="text" name="technologies" value="{{ project.technologies if project else '' }}" placeholder="Python, Flask, PostgreSQL">
+                    </div>
+                    <div class="form-group">
+                        <label>GitHub URL</label>
+                        <input type="url" name="github_url" value="{{ project.github_url if project else '' }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Live URL</label>
+                        <input type="url" name="live_url" value="{{ project.live_url if project else '' }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Image URL</label>
+                        <input type="url" name="image" value="{{ project.image if project else '' }}">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="admin-button">Save Project</button>
+                        <a href="{{ url_for('admin.projects') }}" class="secondary-link">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

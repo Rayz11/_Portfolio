@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Projects | Rayz Tech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div class="admin-logo">KENNEDY<span>KIOKO</span></div>
+            <nav>
+                <a href="{{ url_for('admin.dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('admin.projects') }}" class="active">Projects</a>
+                <a href="{{ url_for('admin.skills') }}">Skills</a>
+                <a href="{{ url_for('admin.services') }}">Services</a>
+                <a href="#">Blog</a>
+                <a href="#">Messages</a>
+            </nav>
+            <div class="sidebar-bottom">
+                <a href="/" target="_blank">View Website</a>
+                <a href="{{ url_for('admin.logout') }}">Logout</a>
+            </div>
+        </aside>
+
+        <main class="admin-main">
+            <div class="page-header">
+                <div>
+                    <p class="dashboard-label">MANAGE PROJECTS</p>
+                    <h1>Portfolio Projects</h1>
+                    <p>Create, edit, and remove projects from your website.</p>
+                </div>
+                <a href="{{ url_for('admin.new_project') }}" class="admin-button small">+ Add Project</a>
+            </div>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <div class="content-card">
+                {% if projects %}
+                    <div class="item-list">
+                        {% for project in projects %}
+                            <div class="item-card">
+                                <div>
+                                    <h3>{{ project.title }}</h3>
+                                    <p>{{ project.description | truncate(140) }}</p>
+                                </div>
+                                <div class="item-meta">
+                                    <span>{{ project.category or 'General' }}</span>
+                                    <div class="action-links">
+                                        <a href="{{ url_for('admin.edit_project', project_id=project.id) }}">Edit</a>
+                                        <form method="post" action="{{ url_for('admin.delete_project', project_id=project.id) }}" onsubmit="return confirm('Delete this project?');">
+                                            <button type="submit">Delete</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p class="empty-state">No projects yet. Add your first project to begin.</p>
+                {% endif %}
+            </div>
+        </main>
+    </div>
+</body>
+</html>

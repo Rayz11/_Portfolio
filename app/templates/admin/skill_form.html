@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ action }} Skill | Rayz Tech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div class="admin-logo">RAYZ<span>TECH</span></div>
+            <nav>
+                <a href="{{ url_for('admin.dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('admin.projects') }}">Projects</a>
+                <a href="{{ url_for('admin.skills') }}" class="active">Skills</a>
+                <a href="{{ url_for('admin.services') }}">Services</a>
+            </nav>
+            <div class="sidebar-bottom">
+                <a href="/" target="_blank">View Website</a>
+                <a href="{{ url_for('admin.logout') }}">Logout</a>
+            </div>
+        </aside>
+
+        <main class="admin-main">
+            <div class="page-header">
+                <div>
+                    <p class="dashboard-label">SKILL FORM</p>
+                    <h1>{{ action }} Skill</h1>
+                    <p>Add a technology or competency.</p>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <form method="post" class="entity-form">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" value="{{ skill.name if skill else '' }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <input type="text" name="category" value="{{ skill.category if skill else '' }}" placeholder="Frontend, Backend, Security">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="admin-button">Save Skill</button>
+                        <a href="{{ url_for('admin.skills') }}" class="secondary-link">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

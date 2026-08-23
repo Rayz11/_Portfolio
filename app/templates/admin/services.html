@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Services | Rayz Tech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div class="admin-logo">RAYZ<span>TECH</span></div>
+            <nav>
+                <a href="{{ url_for('admin.dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('admin.projects') }}">Projects</a>
+                <a href="{{ url_for('admin.skills') }}">Skills</a>
+                <a href="{{ url_for('admin.services') }}" class="active">Services</a>
+            </nav>
+            <div class="sidebar-bottom">
+                <a href="/" target="_blank">View Website</a>
+                <a href="{{ url_for('admin.logout') }}">Logout</a>
+            </div>
+        </aside>
+
+        <main class="admin-main">
+            <div class="page-header">
+                <div>
+                    <p class="dashboard-label">MANAGE SERVICES</p>
+                    <h1>Services</h1>
+                    <p>Add the services you offer to your clients.</p>
+                </div>
+                <a href="{{ url_for('admin.new_service') }}" class="admin-button small">+ Add Service</a>
+            </div>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <div class="content-card">
+                {% if services %}
+                    <div class="item-list">
+                        {% for service in services %}
+                            <div class="item-card">
+                                <div>
+                                    <h3>{{ service.title }}</h3>
+                                    <p>{{ service.description | truncate(140) }}</p>
+                                </div>
+                                <div class="action-links">
+                                    <a href="{{ url_for('admin.edit_service', service_id=service.id) }}">Edit</a>
+                                    <form method="post" action="{{ url_for('admin.delete_service', service_id=service.id) }}" onsubmit="return confirm('Delete this service?');">
+                                        <button type="submit">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p class="empty-state">No services yet. Add your first service.</p>
+                {% endif %}
+            </div>
+        </main>
+    </div>
+</body>
+</html>

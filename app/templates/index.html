@@ -1,0 +1,440 @@
+{% extends "base.html" %}
+
+{% block title %}
+Rayz Tech | Web Developer & Cybersecurity
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-grid">
+
+        <div class="hero-copy">
+
+            <span class="hero-tag">Problem Solver|Web Developer|Cybersecurity enthusiastic</span>
+
+            <h1>
+                Hi, I'm <span>Kennedy Kioko</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                I enjoy creating efficient backend systems and beautiful frontend experiences.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#contact" class="btn btn-primary">
+                    Hire Me
+                </a>
+
+                <a href="app/static/images/KennedyKioko_CV.pdf" class="btn btn-download">
+                    View Resume
+                </a>
+
+            </div>
+
+           
+        </div>
+
+
+        <div class="hero-visual">
+
+            <div class="hero-photo-wrap">
+                <img class="hero-photo" src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Kennedy Kioko">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!----about------------------------------------------------------------------------------------------------------>
+<section>
+   <div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-2">
+                <h1 class="sub-title">About me</h1>
+                <p>I’m a Fourth-year Computer Science student at Kibabii University, passionate about web development and problem-solving. I enjoy creating efficient backend systems and beautiful frontend experiences. Currently seeking opportunities in software development and internships to grow my practical skills.</p>
+                <div class="tab-titles">
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li>2025<span><br>Internship at University of Nairobi,Cheromo</span></li>
+                         <li>2024 <span><br>UI/UX Design Executive at ET institute</span></li>
+                          <li>2023<span><br>Web Development Internship University of Nairobi</span></li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li>2026-Future<span><br>Masters in Computer Science,Harvard University</span></li>
+                         <li>2022-present<span><br>Bachelor Degree in Computer Science,Kibabii University</span><span>Second-upper class owners</span></li>
+                          <li>2018-2021<span><br>Kenya Certificate of Secondary Education,Kitui High School</span><span>Grade:A-</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section class="section section-dark" id="skills">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">MY TOOLKIT</p>
+
+            <h2>
+                Skills &
+                <span>Technologies.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+
+                <div class="skill-icon">01</div>
+
+                <h3>Web Development</h3>
+
+                <p>
+                    Building responsive websites and web
+                    applications.
+                </p>
+
+                <div class="tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>Flask</span>
+                    <span>React js</span>
+                    <span>Python</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">02</div>
+
+                <h3>Cybersecurity</h3>
+
+                <p>
+                    Learning and applying security principles
+                    to systems and applications.
+                </p>
+
+                <div class="tags">
+                    <span>Kali Linux</span>
+                    <span>Wireshark</span>
+                    <span>Burp Suite</span>
+                    <span>Networking</span>
+                    <span>Nmap</span>
+                    <span>Metaspoilt</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">03</div>
+
+                <h3>Backend & Database</h3>
+
+                <p>
+                    Developing backend systems and managing
+                    application data.
+                </p>
+
+                <div class="tags">
+                    <span>Python</span>
+                    <span>Flask</span>
+                    <span>PostgreSQL</span>
+                    <span>SQL</span>
+                    <span>MySQL</span>
+                    <span>Node Js</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">04</div>
+
+                <h3>Tools & Platforms</h3>
+
+                <p>
+                    Development, version control and deployment
+                    tools.
+                </p>
+
+                <div class="tags">
+                    <span>Git</span>
+                    <span>GitHub</span>
+                    <span>VS Code</span>
+                    <span>Render</span>
+                    <span>Postman</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section class="section" id="projects">
+
+    <div class="container">
+
+        <div class="section-heading section-heading-row">
+
+            <div>
+                <p class="eyebrow">SELECTED WORK</p>
+
+                <h2>
+                    Featured
+                    <span>Projects.</span>
+                </h2>
+            </div>
+
+            <p class="section-intro">
+                A selection of projects I've built while
+                learning and solving real-world problems.
+            </p>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+
+            <!-- PROJECT 1 -->
+
+            <article class="project-card">
+
+                <div class="project-number">
+                    01
+                </div>
+
+                <div class="project-content">
+
+                    <p class="project-type">
+                        WEB APPLICATION
+                    </p>
+
+                    <h3>ICT Helpdesk Management System</h3>
+
+                    <p>
+                        A web-based helpdesk platform designed
+                        to manage ICT support tickets, assignments,
+                        priorities and resolutions.
+                    </p>
+
+                    <div class="tags">
+                        <span>Flask</span>
+                        <span>Python</span>
+                        <span>SQL</span>
+                        <span>JavaScript</span>
+                    </div>
+
+                    <a href="https://github.com/Rayz11/ICT-Helpdesk" class="project-link">
+                        View Project →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROJECT 2 -->
+
+            <article class="project-card">
+
+                <div class="project-number">
+                    02
+                </div>
+
+                <div class="project-content">
+
+                    <p class="project-type">
+                        WEB APPLICATION
+                    </p>
+
+                    <h3>RideNova Car hire</h3>
+
+                    <p>
+                        A car rental management platform for
+                        browsing vehicles and managing rental
+                        operations.
+                    </p>
+
+                    <div class="tags">
+                        <span>Flask</span>
+                        <span>Python</span>
+                        <span>MySQL</span>
+                        <span>JavaScript</span>
+                        <span>CSS</span>
+                        <span>PostgreSQL</span>
+                        <span>HTML</span>
+                    </div>
+
+                    <a href="https://ridenovecarrental-com.onrender.com" class="project-link">
+                        View Project →
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section class="section section-dark" id="services">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">WHAT I OFFER</p>
+
+            <h2>
+                Technology
+                <span>Services.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="services-grid">
+
+            <div class="service">
+
+                <span class="service-number">01</span>
+
+                <h3>Web Development</h3>
+
+                <p>
+                    Modern responsive websites and custom
+                    web applications for individuals and
+                    businesses.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <span class="service-number">02</span>
+
+                <h3>Cybersecurity</h3>
+
+                <p>
+                    Security-focused guidance, vulnerability
+                    assessment and practical security solutions.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <span class="service-number">03</span>
+
+                <h3>Technical Support</h3>
+
+                <p>
+                    Computer troubleshooting, software
+                    configuration and technical assistance.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <span class="service-number">04</span>
+
+                <h3>Network Support</h3>
+
+                <p>
+                    Network troubleshooting, configuration
+                    and basic network security assistance.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="section contact-section" id="contact">
+
+    <div class="container">
+
+        <div class="contact-box">
+
+            <p class="eyebrow">GET IN TOUCH</p>
+
+            <h2>
+                Have a project
+                <span>in mind?</span>
+            </h2>
+
+            <p>
+                Whether you need a website, technical support
+                or help solving a technology problem, let's
+                discuss it.
+            </p>
+
+            <a
+                href="mailto:your-email@example.com"
+                class="btn btn-primary"
+            >
+                Start a Conversation →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ action }} Service | Rayz Tech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div class="admin-logo">RAYZ<span>TECH</span></div>
+            <nav>
+                <a href="{{ url_for('admin.dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('admin.projects') }}">Projects</a>
+                <a href="{{ url_for('admin.skills') }}">Skills</a>
+                <a href="{{ url_for('admin.services') }}" class="active">Services</a>
+            </nav>
+            <div class="sidebar-bottom">
+                <a href="/" target="_blank">View Website</a>
+                <a href="{{ url_for('admin.logout') }}">Logout</a>
+            </div>
+        </aside>
+
+        <main class="admin-main">
+            <div class="page-header">
+                <div>
+                    <p class="dashboard-label">SERVICE FORM</p>
+                    <h1>{{ action }} Service</h1>
+                    <p>Describe a service you provide.</p>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <form method="post" class="entity-form">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" name="title" value="{{ service.title if service else '' }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="description" rows="5" required>{{ service.description if service else '' }}</textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="admin-button">Save Service</button>
+                        <a href="{{ url_for('admin.services') }}" class="secondary-link">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
